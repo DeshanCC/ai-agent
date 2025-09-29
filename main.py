@@ -2,6 +2,7 @@ import os
 import sys
 from dotenv import load_dotenv
 from google import genai
+from google.genai import types
 
 def main():
     load_dotenv()
@@ -13,8 +14,12 @@ def main():
         sys.exit(1)
     prompt = sys.argv[1]
 
+    messages = [
+    types.Content(role="user", parts=[types.Part(text=prompt)]),
+]
+
     response = client.models.generate_content(
-        model='gemini-2.0-flash-001', contents=prompt
+        model='gemini-2.0-flash-001', contents=messages
     )
     print(response.text)
     if response is None or response.usage_metadata is None:
