@@ -29,8 +29,8 @@ def main():
         print("Response is not looking good :-(")
         return
     if verbose_flag:
-        print(f"User Prompt: {response.usage_metadata.prompt_token_count}")
-        print(f"Prompt Tokens: {response.usage_metadata.prompt_token_count}")
-        print(f"Response Tokens: {response.usage_metadata.candidates_token_count}")
+        print(f"User prompt: {prompt}")
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
 
 main()
